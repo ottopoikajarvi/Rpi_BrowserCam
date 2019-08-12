@@ -19,8 +19,8 @@ sock.bind(('', MCAST_PORT))
 mreq = struct.pack("4sl", socket.inet_aton(MCAST_GRP), socket.INADDR_ANY)
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
 
-print " "
-print "3D Scanner - Open Source listen script"
+print(" ")
+print("3D Scanner - Open Source listen script")
 
 debug = 1  # Turn debug message on/off
 
@@ -29,10 +29,10 @@ while True:
    rdata = data[1:]
    rcmd = ord(data[0])
    if debug == 1:
-     print "Received cmd: "+ str(rcmd)
-     print "Data: " + rdata
+     print ("Received cmd: "+ str(rcmd))
+     print ("Data: " + rdata)
    if (rcmd == 1):
-     print "shooting"
+     print ("shooting")
      cmd = "raspistill " + rdata
      pid = subprocess.call(cmd, shell=True)
 

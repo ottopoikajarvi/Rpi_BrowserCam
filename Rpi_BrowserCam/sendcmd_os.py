@@ -16,12 +16,12 @@ MCAST_GRP = '225.1.1.1'
 MCAST_PORT = 3179
 
 if len(sys.argv) < 2:
-  print "Please provide raspistill command options. See raspistill command for details"
+  print("Please provide raspistill command options. See raspistill command for details")
 else:
   options = ""
   for a in range(1, len(sys.argv)):
    options = options + " " + sys.argv[a]
-  print "Sending shooting command..."
+  print("Sending shooting command...")
   SCMD = chr(1)  # Command 1 = Shoot photo
   SEND = SCMD + options
   sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
