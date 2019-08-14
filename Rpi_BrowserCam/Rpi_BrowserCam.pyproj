@@ -25,6 +25,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="listen_os.py" />
+    <Compile Include="index.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Rpi_BrowserCam.py" />
     <Compile Include="sendcmd_os.py" />
   </ItemGroup>
