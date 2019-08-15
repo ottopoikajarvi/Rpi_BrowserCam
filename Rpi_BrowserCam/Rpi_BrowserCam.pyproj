@@ -28,6 +28,12 @@
     <Compile Include="index.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="servicediscovery_client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="servicediscovery_server.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Rpi_BrowserCam.py" />
     <Compile Include="sendcmd_os.py" />
   </ItemGroup>

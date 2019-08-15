@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 
 import cgi
@@ -14,6 +13,8 @@ def get_rpi_ipaddr():
     testsock.close()
     return ipaddr
 
+ipaddr = get_rpi_ipaddr()
+
 print("Content-Type: text/html")
 print()
 print("""
@@ -23,6 +24,6 @@ print("""
     </head>
     <body>
         <h1>Camera Control</h1>
-        <p>Server is running</p>
-        
-""")
+        <p>If this is visible, the server is running</p>
+        <p>This Raspberry Pi's local IP address is %s<p>
+""" % (ipaddr))

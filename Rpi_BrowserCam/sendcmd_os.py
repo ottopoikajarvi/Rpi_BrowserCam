@@ -21,11 +21,11 @@ else:
   options = ""
   for a in range(1, len(sys.argv)):
    options = options + " " + sys.argv[a]
-  print("Sending shooting command...")
+  #print("Sending shooting command...")
   SCMD = chr(1)  # Command 1 = Shoot photo
   SEND = SCMD + options
   sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-  dev = "eth0" + "\0"
+  dev = "wlan0" + "\0"
   sock.setsockopt(socket.SOL_SOCKET, IN.SO_BINDTODEVICE, dev)
   sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
   sock.sendto(SEND, (MCAST_GRP, MCAST_PORT))
