@@ -6,10 +6,10 @@
 
 import socket
 import struct
-import fcntl
+#import fcntl
 import subprocess
 import sys
-import IN
+#import IN
 
 
 MCAST_GRP = '225.1.1.1'
@@ -26,9 +26,9 @@ else:
   SEND = SCMD + options
   sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
   dev = "wlan0" + "\0"
-  sock.setsockopt(socket.SOL_SOCKET, IN.SO_BINDTODEVICE, dev)
+  #sock.setsockopt(socket.SOL_SOCKET, IN.SO_BINDTODEVICE, dev)
   sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
-  sock.sendto(SEND, (MCAST_GRP, MCAST_PORT))
+  sock.sendto(SEND.encode("utf-8"), (MCAST_GRP, MCAST_PORT))
   sock.close()
 
 

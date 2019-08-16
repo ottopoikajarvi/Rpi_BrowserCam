@@ -23,7 +23,8 @@ sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
 
 while True:
     data, client = sock.recvfrom(10240)
+    data.decode("utf-8")
     print(data)
     print(client)
-    #if data.startswith(TOKEN):
-        #socket.sendto()
+    if data.startswith(TOKEN):
+        sock.sendto(ipaddr.encode("utf-8"), client)

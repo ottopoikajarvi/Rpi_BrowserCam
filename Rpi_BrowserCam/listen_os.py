@@ -26,6 +26,7 @@ debug = 1  # Turn debug message on/off
 
 while True:
    data = sock.recv(10240)
+   data = data.decode("utf-8")
    rdata = data[1:]
    rcmd = ord(data[0])
    if debug == 1:
