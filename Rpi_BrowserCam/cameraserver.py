@@ -1,5 +1,5 @@
 
-#!/usr/bin/python
+#!/usr/bin/python3
 #Streaming demo from https://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming
 #Copyright 2013-2017 Dave Jones
 #Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #Pi3Dscan - listen script
 #Written by: Richard Garsthagen - richard@3dmij.nl
 #More info: www.pi3dscan.com

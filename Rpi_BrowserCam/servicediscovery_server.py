@@ -18,11 +18,12 @@ ipaddr = get_rpi_ipaddr()
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind((MCAST_ADDR, MCAST_PORT))
-mreq = struct.pack("4sl", socket.inet_aton(MCAST_GRP), socket.INADDR_ANY)
+mreq = struct.pack("4sl", socket.inet_aton(MCAST_ADDR), socket.INADDR_ANY)
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
 
 while True:
     data, client = sock.recvfrom(10240)
     print(data)
-    if data == TOKEN:
-        socket.sendto()
+    print(client)
+    #if data.startswith(TOKEN):
+        #socket.sendto()
