@@ -26,4 +26,5 @@ print("""
         <h1>Camera Control</h1>
         <p>If this is visible, the server is running</p>
         <p>This Raspberry Pi's local IP address is %s<p>
-""" % (ipaddr))
+        <a href="%s:8000" target="_blank">Camera preview</a>
+""" % (ipaddr, ipaddr))

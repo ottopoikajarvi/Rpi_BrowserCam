@@ -2,12 +2,13 @@
 
 import socket
 import struct
+import subprocess
+import time
 
-#Multicast address and port have to match with servicediscovery_client.py on other units
-MCAST_ADDR = "224.1.1.1"
-MCAST_PORT = 5008
-TOKEN = "rpiservice" #Has to be identical for both client and server
-TOKEN_ANS = "answer" #Has to be identical for both client and server
+#Multicast address and port have to match with takeimagecmd.py on other units
+MCAST_ADDR = "225.1.1.1"
+MCAST_PORT = 5007
+TOKENCAMERA = "image2acgd" #Has to be identical for all units
 
 def listen_socket():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -18,11 +19,11 @@ def listen_socket():
     return sock
 
 sock = listen_socket()
+projectname = time.strftime('%Y%m%d%H%M%S', time.localtime())
 
 while True:
-    data, client = sock.recvfrom(10240)
+    data = sock.recv(10240)
     data = data.decode("utf-8")
-    print(data)
-    print(client)
-    if data.startswith(TOKEN):
-        sock.sendto(TOKEN_ANS.encode("utf-8"), client)
+    if data.startswith(TOKENCAMERA):
+        cmd = "raspistill -o /var/www/%s.jpg" % projectname
+        pid = subprocess.call(cmd, shell=True)

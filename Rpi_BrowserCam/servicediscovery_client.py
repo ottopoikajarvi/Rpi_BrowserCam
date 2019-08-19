@@ -2,6 +2,7 @@
 
 import socket
 
+#Multicast address and port have to match with servicediscovery_client.py on other units
 MCAST_ADDR = "224.1.1.1"
 MCAST_PORT = 5008
 TOKEN = "rpiservice" #Has to be identical for both client and server
