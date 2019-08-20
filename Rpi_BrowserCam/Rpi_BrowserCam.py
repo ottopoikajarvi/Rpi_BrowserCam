@@ -4,10 +4,10 @@
 import subprocess
 
 def takemcastpic():
-    subprocess.run(["python3", "takeimagecmd.py"])
+    subprocess.Popen(["python3", "takeimagecmd.py"])
 
 def startpiclisten():
-    subprocess.run(["python3", "cameralisten.py"])
+    subprocess.Popen(["python3", "cameralisten.py"])
 
 def startstreamserver():
-    subprocess.run(["python3", "cameraserver.py"])
+    subprocess.Popen(["python3", "cameraserver.py"])

@@ -26,4 +26,4 @@ while True:
     data = data.decode("utf-8")
     if data.startswith(TOKENCAMERA):
         cmd = "raspistill -o /var/www/%s.jpg" % projectname
-        pid = subprocess.call(cmd, shell=True)
+        pid = subprocess.run(cmd, shell=True)

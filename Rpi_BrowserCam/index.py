@@ -16,7 +16,7 @@ def get_rpi_ipaddr():
 
 def showimages(imgdirectory):
     for item in imgdirectory:
-        if item.endswith(".jpg")
+        if item.endswith(".jpg"):
             print("""
         <img src="/%s" width="400">
     </body>
