@@ -2,9 +2,10 @@
 
 import cgi
 import socket
+import os
 
 def takemcastpic():
-    subprocess.run(["python3", "sendcmd_os.py", "-o", "newimage.jpg"])
+    subprocess.run(["python3", "takeimagecmd.py"])
 
 def get_rpi_ipaddr():
     testsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -12,6 +13,15 @@ def get_rpi_ipaddr():
     ipaddr = testsock.getsockname()[0]
     testsock.close()
     return ipaddr
+
+def showimages(imgdirectory):
+    for item in imgdirectory:
+        if item.endswith(".jpg")
+            print("""
+        <img src="/%s" width="400">
+    </body>
+</html>
+""" % (item))
 
 ipaddr = get_rpi_ipaddr()
 

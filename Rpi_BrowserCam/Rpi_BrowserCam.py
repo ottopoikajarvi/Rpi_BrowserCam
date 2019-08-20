@@ -4,10 +4,10 @@
 import subprocess
 
 def takemcastpic():
-    subprocess.run(["python3", "sendcmd_os.py", "-o", "newimage.jpg"])
+    subprocess.run(["python3", "takeimagecmd.py"])
 
 def startpiclisten():
-    subprocess.run(["python3", "listen_os.py"])
+    subprocess.run(["python3", "cameralisten.py"])
 
 def startstreamserver():
     subprocess.run(["python3", "cameraserver.py"])
