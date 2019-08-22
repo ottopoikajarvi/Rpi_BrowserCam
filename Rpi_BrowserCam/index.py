@@ -21,7 +21,7 @@ def get_rpi_ipaddr():
 def get_devices():
     intersock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     intersock.sendto(TOKEN_LOC.encode("utf-8"), ("127.0.0.1", LOCAL_PORT))
-    devicesser, addr = sock.recvfrom(10240)
+    devicesser, addr = intersock.recvfrom(10240)
     devicesfound = pickle.loads(devicesser)
     return devicesfound
 
@@ -35,13 +35,6 @@ def show_devices(devicesfound):
         <p>%s<p>
         """ % (unit))
     return
-
-def showimages(imgdirectory):
-    for item in imgdirectory:
-        if item.endswith(".jpg"):
-            print("""
-        <img src="/%s" width="400">
-            """ % (item))
 
 ipaddr = get_rpi_ipaddr()
 devicesfound = get_devices()

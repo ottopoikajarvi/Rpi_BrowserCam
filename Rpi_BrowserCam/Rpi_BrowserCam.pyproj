@@ -31,6 +31,9 @@
     <Compile Include="cameralisten.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="images.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="takeimagecmd.py">
       <SubType>Code</SubType>
     </Compile>
