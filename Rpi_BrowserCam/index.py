@@ -50,8 +50,9 @@ print("""
         <h1>Camera Control</h1>
         <p>If this is visible, the server is running</p>
         <p>This Raspberry Pi's local IP address is %s<p>
-        <a href="%s:8000" target="_blank">Camera preview</a>
-""" % (ipaddr, ipaddr))
+        <a href="http://%s:8000" target="_blank">Camera preview</a>
+        <a href="http://%s/cgi-bin/images.py">Images in this RPi</a>
+""" % (ipaddr, ipaddr, ipaddr))
 
 show_devices(devicesfound)
 
