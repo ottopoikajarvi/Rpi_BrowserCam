@@ -14,6 +14,11 @@ def showimages(imgdirectory):
             print("""
             <p>Image name: %s<p>
             """ % (itemname[0]))
+            print("""
+            <a href="/%s" download>
+                Download this image
+            </a>
+            """ % (item))
 
 print("Content-Type: text/html")
 print()
