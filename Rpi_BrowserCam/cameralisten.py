@@ -19,11 +19,11 @@ def listen_socket():
     return sock
 
 sock = listen_socket()
-projectname = time.strftime('%Y%m%d%H%M%S', time.localtime())
 
 while True:
     data = sock.recv(10240)
     data = data.decode("utf-8")
     if data.startswith(TOKENCAMERA):
-        cmd = "raspistill -o /var/www/%s.jpg" % projectname
+        projectname = time.strftime('%Y%m%d%H%M%S', time.localtime())
+        cmd = "raspistill -o /var/www/html/%s.jpg" % projectname
         pid = subprocess.run(cmd, shell=True)

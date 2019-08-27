@@ -18,6 +18,7 @@ def showimages(imgdirectory):
             <a href="/%s" download>
                 Download this image
             </a>
+            <br>
             """ % (item))
 
 print("Content-Type: text/html")
@@ -30,7 +31,7 @@ print("""
     <body>
 """)
 
-imgdirectory = os.listdir("/var/www")
+imgdirectory = os.listdir("/var/www/html")
 
 showimages(imgdirectory)
 
