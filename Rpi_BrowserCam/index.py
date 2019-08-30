@@ -38,6 +38,7 @@ def show_devices(devicesfound):
 
 ipaddr = get_rpi_ipaddr()
 devicesfound = get_devices()
+form = cgi.FieldStorage()
 
 print("Content-Type: text/html")
 print()
@@ -54,9 +55,14 @@ print("""
         <a href="http://%s/cgi-bin/images.py">Images in this RPi</a>
 """ % (ipaddr, ipaddr, ipaddr))
 
+print("""<input type="submit" value="Take Pictures" name="Submit1" />""")
+
 show_devices(devicesfound)
 
 print("""
     <body>
 <html>
 """)
+
+if "Submit1" in form:
+    subprocess.run("takeimagecmd.py")
