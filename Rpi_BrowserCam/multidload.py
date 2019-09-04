@@ -1,5 +1,6 @@
 
 #!/usr/bin/python3
+#Requires image name as argument
 
 import urllib.request as req
 import cgi
@@ -32,11 +33,16 @@ devicesfound = get_devices()
 #retrieve images
 for device in devicesfound:
     deviceid = device.split(".")[3]
-    imageurl = "http://192.168.1.%s/%s.jpg" % (deviceid, imgname)
+    imageurl = "http://%s/%s.jpg" % (device, imgname)
     jpgname = deviceid + ".jpg"
     jpgloc = imgdirectory + jpgname
-    req.urlretrieve(imageurl, jpgloc)
+    try:
+        req.urlretrieve(imageurl, jpgloc)
+    except:
+        print("Image retrieval failed from: %s" % device)
+        continue
 
 #zip the folder
 zipfolder = "/var/www/html/" + imgname
 shutil.make_archive(zipfolder, "zip", imgdirectory)
+shutil.rmtree(imgdirectory)

@@ -65,4 +65,4 @@ print("""
 """)
 
 if "Submit1" in form:
-    subprocess.Popen(["python3", "takeimagecmd.py"])
+    subprocess.Popen(["python3", "takeimagecmd.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

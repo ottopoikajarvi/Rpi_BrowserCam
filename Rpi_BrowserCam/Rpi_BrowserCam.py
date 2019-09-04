@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 import subprocess
+import time
 
-def takemcastpic():
-    subprocess.Popen(["python3", "takeimagecmd.py"])
 
 def start_piclisten():
     listenserver = subprocess.Popen(["python3", "cameralisten.py"])
@@ -22,6 +21,26 @@ def start_servicediscovery_client():
     return sdclient
 
 listenserver = start_piclisten()
+time.sleep(0.5)
 streamserver = start_streamserver()
+time.sleep(0.5)
 sdserver = start_servicediscovery_server()
+time.sleep(0.5)
 sdclient = start_servicediscovery_client()
+time.sleep(10)
+
+while True:
+    listenpoll = listenserver.poll()
+    if listenpoll != None:
+        listenserver = start_piclisten()
+    streampoll = streamserver.poll()
+    if streampoll != None:
+        streamserver = start_streamserver()
+    sdserverpoll = sdserver.poll()
+    if sdserverpoll != None:
+        sdserver = start_servicediscovery_server()
+    sdclientpoll = sdclient.poll()
+    if listenpoll != None:
+        sdclient = start_servicediscovery_client()
+    time.sleep(30)
+    print("Checking subprocess status...")
