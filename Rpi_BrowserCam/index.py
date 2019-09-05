@@ -55,7 +55,9 @@ print("""
         <a href="http://%s/cgi-bin/images.py">Images in this RPi</a>
 """ % (ipaddr, ipaddr, ipaddr))
 
-print("""<input type="submit" value="Take Pictures" name="Submit1" />""")
+print("""<form>
+<input type="submit" value="Take Pictures" name="Submit1" />
+<form>""")
 
 show_devices(devicesfound)
 
@@ -65,4 +67,4 @@ print("""
 """)
 
 if "Submit1" in form:
-    subprocess.Popen(["python3", "takeimagecmd.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.Popen(["/usr/bin/python3", "/var/www/html/takeimagecmd.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

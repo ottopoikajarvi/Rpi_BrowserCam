@@ -35,7 +35,7 @@ for device in devicesfound:
     deviceid = device.split(".")[3]
     imageurl = "http://%s/%s.jpg" % (device, imgname)
     jpgname = deviceid + ".jpg"
-    jpgloc = imgdirectory + jpgname
+    jpgloc = imgdirectory + "/" + jpgname
     try:
         req.urlretrieve(imageurl, jpgloc)
     except:

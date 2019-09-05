@@ -22,7 +22,7 @@ def start_servicediscovery_client():
 
 listenserver = start_piclisten()
 time.sleep(0.5)
-streamserver = start_streamserver()
+#streamserver = start_streamserver() disabled for comp issues
 time.sleep(0.5)
 sdserver = start_servicediscovery_server()
 time.sleep(0.5)
@@ -33,9 +33,9 @@ while True:
     listenpoll = listenserver.poll()
     if listenpoll != None:
         listenserver = start_piclisten()
-    streampoll = streamserver.poll()
-    if streampoll != None:
-        streamserver = start_streamserver()
+    #streampoll = streamserver.poll()
+    #if streampoll != None:
+        #streamserver = start_streamserver()
     sdserverpoll = sdserver.poll()
     if sdserverpoll != None:
         sdserver = start_servicediscovery_server()

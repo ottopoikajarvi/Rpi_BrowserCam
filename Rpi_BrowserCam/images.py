@@ -19,7 +19,7 @@ def showimages(imgdirectory):
     for item in imgdirectory:
         if item.endswith(".jpg"):
             itemname = item.split(".")
-            imagenames.append(itemname)
+            imagenames.append(itemname[0])
             print("""
         <img src="/%s" width="400">
             """ % (item))
@@ -27,14 +27,16 @@ def showimages(imgdirectory):
             <p>Image name: %s<p>
             """ % (itemname[0]))
             print("""
-            <a href="%s/%s" download>
+            <a href="/%s" download>
                 Download this image
             </a>
             <br>
             """ % (ipaddr, item))
             print("""
-            <input type="submit" value="Retrieve all images of this set" name="%s" /><br>
-            """ % (itemname))
+            <form>
+            <input type="submit" value="Retrieve all images of this set" name="%s" />
+            <form><br>
+            """ % (itemname[0]))
         elif item.endwith(".zip"):
             itemname = item.split(".")
             print("""
@@ -42,7 +44,7 @@ def showimages(imgdirectory):
             """ % (itemname[0]))
             print("""
             <br>
-            <a href="%s/%s" download>
+            <a href="/%s" download>
                 Download this zip
             </a>
             <br>
@@ -63,7 +65,7 @@ print("""
 
 imgdirectory = os.listdir("/var/www/html")
 
-imagesdict = showimages(imgdirectory)
+imagenames = showimages(imgdirectory)
 
 print("""
     <body>
@@ -73,4 +75,4 @@ print("""
 if bool(form) == True:
     for name in imagenames:
         if name in form:
-            subprocess.Popen(["python3", "multidload.py", name], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            subprocess.Popen(["/usr/bin/python3", "/var/www/html/multidload.py", name], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
