@@ -40,10 +40,10 @@ def showimages(imgdirectory):
         elif item.endwith(".zip"):
             itemname = item.split(".")
             print("""
+            <br>
             <p>Zip of images named %s<p>
             """ % (itemname[0]))
             print("""
-            <br>
             <a href="/%s" download>
                 Download this zip
             </a>
