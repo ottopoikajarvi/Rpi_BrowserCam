@@ -12,8 +12,10 @@ def get_rpi_ipaddr():
     testsock.close()
     return ipaddr
 
-#Iterates over images in directory, prints html for found images, including download links
 def showimages(imgdirectory):
+    """
+    Iterates over images in directory, prints html for found images, including download links
+    """
     ipaddr = get_rpi_ipaddr()
     imagenames = []
     for item in imgdirectory:

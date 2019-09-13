@@ -13,8 +13,10 @@ TOKEN_LOC = "interrail" #Has to match with local scripts that ask for devices
 MULTICAST_TTL = 2 #how many hops for packets
 devicesfound = []
 
-#Sends a multicast message to which local servicediscovery_servers answer, return a list of server ip addresses
 def service_discovery():
+    """
+    Sends a multicast message to which local servicediscovery_servers answer, return a list of server ip addresses
+    """
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, MULTICAST_TTL)
     sock.sendto(TOKEN.encode("utf-8"), (MCAST_ADDR, MCAST_PORT))

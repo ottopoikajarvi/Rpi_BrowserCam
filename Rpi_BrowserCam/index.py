@@ -52,6 +52,7 @@ print("""
         <p>If this is visible, the server is running</p>
         <p>This Raspberry Pi's local IP address is %s<p>
         <a href="http://%s:8000" target="_blank">Camera preview</a>
+        <br>
         <a href="http://%s/cgi-bin/images.py">Images in this RPi</a>
 """ % (ipaddr, ipaddr, ipaddr))
 
