@@ -33,7 +33,7 @@ def showimages(imgdirectory):
                 Download this image
             </a>
             <br>
-            """ % (ipaddr, item))
+            """ % (item))
             print("""
             <form>
             <input type="submit" value="Retrieve all images of this set" name="%s" />
@@ -50,7 +50,7 @@ def showimages(imgdirectory):
                 Download this zip
             </a>
             <br>
-            """ % (ipaddr, item))
+            """ % (item))
     return imagenames
 
 form = cgi.FieldStorage()
