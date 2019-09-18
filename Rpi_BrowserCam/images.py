@@ -39,7 +39,7 @@ def showimages(imgdirectory):
             <input type="submit" value="Retrieve all images of this set" name="%s" />
             <form><br>
             """ % (itemname[0]))
-        elif item.endwith(".zip"):
+        elif item.endswith(".zip"):
             itemname = item.split(".")
             print("""
             <br>
